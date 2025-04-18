@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EggBucket - Retail Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="EggBucket Logo">
+            </div>
+            <button class="active" onclick="showSection('orders')">Orders</button>
+            <button onclick="showSection('deliveries')">Deliveries</button>
+            <button onclick="showSection('payments')">Payments</button>
+        </div>
+
+        <div class="main-content">
+            <!-- Orders Section -->
+            <div id="orders" class="content-section">
+                <h2>Place New Order</h2>
+                <!-- Order form would go here -->
+            </div>
+
+            <!-- Deliveries Section -->
+            <div id="deliveries" class="content-section" style="display:none;">
+                <h2>Delivery Status</h2>
+                <!-- Delivery tracking would go here -->
+            </div>
+
+            <!-- Payments Section -->
+            <div id="payments" class="content-section" style="display:none;">
+                <h2>Payment History</h2>
+                <!-- Payment records would go here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Similar to admin dashboard
+        }
+    </script>
+</body>
+</html>
+<div class="login-option" onclick="location.href='retail.html'">
+    <h3>Retail Login</h3>
+</div>

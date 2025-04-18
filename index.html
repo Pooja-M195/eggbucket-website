@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EggBucket - Login Portal</title>
+</head>
+<body>
+    <div style="background: white; padding: 30px; border-radius: 10px; width: 350px; margin: 50px auto; text-align: center;">
+        <!-- Logo -->
+        <div>
+            <img src="logo.png" alt="EggBucket Logo" width="180">
+        </div>
+        
+        <!-- Login Options -->
+        <div style="margin-top: 20px;">
+            <div onclick="showLoginForm('admin')" style="background: #ff8c00; color: white; padding: 15px; margin: 10px 0; border-radius: 8px; cursor: pointer;">
+                <h3>Admin Login</h3>
+            </div>
+            
+            <div onclick="showLoginForm('retail')" style="background: #ff8c00; color: white; padding: 15px; margin: 10px 0; border-radius: 8px; cursor: pointer;">
+                <h3>Retail Login</h3>
+            </div>
+        </div>
+        
+        <!-- Admin Login Form (Hidden by default) -->
+        <div id="admin-login-form" style="display: none; margin-top: 20px;">
+            <h3>Admin Credentials</h3>
+            <input type="text" id="admin-username" placeholder="Admin ID" required style="width: 100%; padding: 10px; margin: 5px 0; box-sizing: border-box;">
+            <input type="password" id="admin-password" placeholder="Password" required style="width: 100%; padding: 10px; margin: 5px 0; box-sizing: border-box;">
+            <button onclick="validateAdminLogin()" style="background: #ff8c00; color: white; border: none; padding: 10px 20px; margin-top: 10px; border-radius: 5px; cursor: pointer;">Login</button>
+        </div>
+        
+        <!-- Retail Login Form (Hidden by default) -->
+        <div id="retail-login-form" style="display: none; margin-top: 20px;">
+            <h3>Retail Credentials</h3>
+            <input type="text" id="retail-username" placeholder="Phone Number" required style="width: 100%; padding: 10px; margin: 5px 0; box-sizing: border-box;">
+            <input type="password" id="retail-password" placeholder="Password" required style="width: 100%; padding: 10px; margin: 5px 0; box-sizing: border-box;">
+            <button onclick="validateRetailLogin()" style="background: #ff8c00; color: white; border: none; padding: 10px 20px; margin-top: 10px; border-radius: 5px; cursor: pointer;">Login</button>
+        </div>
+    </div>
+
+    <script>
+        // Show the appropriate login form
+        function showLoginForm(type) {
+            // Hide all forms first
+            document.getElementById('admin-login-form').style.display = 'none';
+            document.getElementById('retail-login-form').style.display = 'none';
+            
+            // Show the selected form
+            document.getElementById(type + '-login-form').style.display = 'block';
+        }
+        
+        // Basic validation for admin login
+        function validateAdminLogin() {
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+            
+            if (username === "admin" && password === "admin123") {
+                window.location.href = "admin.html"; // Redirect to admin dashboard
+            } else {
+                alert("Invalid admin credentials! Try: admin/admin123");
+            }
+        }
+        
+        // Basic validation for retail login
+        function validateRetailLogin() {
+            const phone = document.getElementById('retail-username').value;
+            const password = document.getElementById('retail-password').value;
+            
+            if (phone.length >= 10 && password === "retail123") {
+                window.location.href = "retail.html"; // Redirect to retail dashboard
+            } else {
+                alert("Invalid retail credentials! Phone must be 10+ digits, password: retail123");
+            }
+        }
+    </script>
+</body>
+</html>

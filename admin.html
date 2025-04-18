@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EggBucket - Admin Dashboard</title>
+</head>
+<body>
+    <div>
+        <!-- Vertical Sidebar -->
+        <div style="width: 250px; background-color: #2c3e50; padding: 20px 0; float: left; height: 100vh;">
+            <div style="padding: 0 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+                <img src="logo.png" alt="EggBucket Logo" style="max-width: 100%;">
+            </div>
+            
+            <div style="padding: 0 15px;">
+                <button onclick="showSection('about')" style="display: block; width: 100%; padding: 12px 15px; margin-bottom: 5px; background: #ff8c00; color: white; border: none; text-align: left; cursor: pointer;">About</button>
+                
+                <button onclick="showSection('customer-info')" style="display: block; width: 100%; padding: 12px 15px; margin-bottom: 5px; background: transparent; color: white; border: none; text-align: left; cursor: pointer;">Customer Information</button>
+                
+                <button onclick="showSection('add-delivery')" style="display: block; width: 100%; padding: 12px 15px; margin-bottom: 5px; background: transparent; color: white; border: none; text-align: left; cursor: pointer;">Add Delivery Partner</button>
+                
+                <button onclick="showSection('add-sales')" style="display: block; width: 100%; padding: 12px 15px; margin-bottom: 5px; background: transparent; color: white; border: none; text-align: left; cursor: pointer;">Add Sales Person</button>
+                
+                <button onclick="showSection('partners-list')" style="display: block; width: 100%; padding: 12px 15px; margin-bottom: 5px; background: transparent; color: white; border: none; text-align: left; cursor: pointer;">View Personnel</button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div style="margin-left: 250px; padding: 30px;">
+            <!-- About Section -->
+            <div id="about">
+                <h2>About EggBucket</h2>
+                <p>Welcome to EggBucket Admin Dashboard. Manage your delivery partners, sales team, and customer information from this centralized platform.</p>
+            </div>
+
+            <!-- Customer Information Section -->
+            <div id="customer-info" style="display:none;">
+                <h2>Customer Information</h2>
+                <table border="1" cellpadding="8" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Trays Delivered</th>
+                            <th>Money Collected</th>
+                            <th>Last Delivery</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>C1001</td>
+                            <td>Rahul Sharma</td>
+                            <td>15</td>
+                            <td>₹750</td>
+                            <td>2023-06-15</td>
+                        </tr>
+                        <tr>
+                            <td>C1002</td>
+                            <td>Priya Patel</td>
+                            <td>8</td>
+                            <td>₹400</td>
+                            <td>2023-06-14</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Add Delivery Partner Section -->
+            <div id="add-delivery" style="display:none;">
+                <h2>Add Delivery Partner</h2>
+                <form id="delivery-form">
+                    <input type="text" placeholder="Full Name" required style="padding: 8px; width: 100%; margin-bottom: 10px;"><br>
+                    <input type="text" placeholder="Phone Number" required style="padding: 8px; width: 100%; margin-bottom: 10px;"><br>
+                    <input type="password" placeholder="Password" required style="padding: 8px; width: 100%; margin-bottom: 10px;"><br>
+                    <button type="submit" style="padding: 10px 20px; background: #ff8c00; color: white; border: none; cursor: pointer;">Add Partner</button>
+                </form>
+            </div>
+
+            <!-- Add Sales Person Section -->
+            <div id="add-sales" style="display:none;">
+                <h2>Add Sales Person</h2>
+                <form id="sales-form">
+                    <input type="text" placeholder="Full Name" required style="padding: 8px; width: 100%; margin-bottom: 10px;"><br>
+                    <input type="text" placeholder="Phone Number" required style="padding: 8px; width: 100%; margin-bottom: 10px;"><br>
+                    <input type="password" placeholder="Password" required style="padding: 8px; width: 100%; margin-bottom: 10px;"><br>
+                    <button type="submit" style="padding: 10px 20px; background: #ff8c00; color: white; border: none; cursor: pointer;">Add Sales Person</button>
+                </form>
+            </div>
+
+            <!-- Partners List Section -->
+            <div id="partners-list" style="display:none;">
+                <h2>Delivery Partners</h2>
+                <table border="1" cellpadding="8" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DP001</td>
+                            <td>Arjun Kumar</td>
+                            <td>9876543210</td>
+                            <td>Active</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Sales Team</h2>
+                <table border="1" cellpadding="8" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Customers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SP001</td>
+                            <td>Neha Gupta</td>
+                            <td>7654321098</td>
+                            <td>15</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('customer-info').style.display = 'none';
+            document.getElementById('add-delivery').style.display = 'none';
+            document.getElementById('add-sales').style.display = 'none';
+            document.getElementById('partners-list').style.display = 'none';
+            
+            // Show selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Form submission handlers
+        document.getElementById('delivery-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Delivery partner added successfully!');
+            showSection('partners-list');
+        });
+
+        document.getElementById('sales-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Sales person added successfully!');
+            showSection('partners-list');
+        });
+    </script>
+</body>
+</html>
+<div class="login-option" onclick="location.href='admin.html'">
+    <h3>Admin Login</h3>
+</div>
